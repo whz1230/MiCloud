@@ -12,6 +12,9 @@ import com.mi.base.exception.ServiceException;
 
 @Service("baseService")
 public interface BaseService {
+	public Object getBean(String beanId);
+
+	public HibernateTemplate getHibernateTemplate() throws ServiceException;
 
 	public static final String BEAN_ID = "baseService";
 
@@ -65,7 +68,4 @@ public interface BaseService {
 
 	public void flushHibernate();
 
-	public Object getBean(String beanId);
-
-	public HibernateTemplate getHibernateTemplate() throws ServiceException;
 }

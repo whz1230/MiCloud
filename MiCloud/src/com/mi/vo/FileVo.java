@@ -1,4 +1,4 @@
-package com.mi.file.vo;
+package com.mi.vo;
 
 import java.io.Serializable;
 import java.util.Arrays;

@@ -34,23 +34,6 @@
 </head>
 
 <body>
-	<div class="site-topbar">
-		<div class="container">
-			<div class="topbar-nav">
-				<a>小米网</a><span class="sep">|</span> <a>MIUI</a><span class="sep">|</span> <a>米聊</a><span class="sep">|</span> <a>游戏</a><span class="sep">|</span> <a>多看阅读</a><span class="sep">|</span> <a>云服务</a><span class="sep">|</span> <a>小米网移动版</a><span class="sep">|</span> <a>问题反馈</a><span class="sep">|</span> <a>Select Region</a>
-			</div>
-			<div class="topbar-cart" id="J_miniCartTrigger">
-				<a class="cart-mini" id="J_miniCartBtn"><i class="iconfont"></i>购物车<span class="cart-mini-num J_cartNum">（0）</span></a>
-			</div>
-			
-			<div class="topbar-info" id="J_userInfo">
-				<c:if test="${user != null}">
-					<a class="link">${user.username }</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				</c:if>
-				<a class="link">登录</a><span class="sep">|</span> <a class="link">注册</a>
-			</div>
-		</div>
-	</div>
 
 	<div class="site-header">
 		<div class="container">
@@ -60,7 +43,7 @@
 					<a class="link-block">预约小米Max</a>
 				</div>
 			</div>
-			<div class="header-nav">
+			<div class="header-nav" style="border: 1px solid red;">
 				<ul class="nav-list J_navMainList clearfix">
 					<li id="J_navCategory" class="nav-category">
 						<a class="link-category" href="javascript:void(0);"  onclick=""><span class="text">全部商品分类</span></a>
@@ -74,13 +57,6 @@
 				</ul>
 			</div>
 
-			<div class="header-search">
-				<form id="J_searchForm" class="search-form clearfix" method="get">
-					<label for="search" class="hide">站内搜索</label> 
-						<input class="search-text" type="search" id="search" name="keyword"> 
-						<input type="submit" class="search-btn iconfont" value="">
-				</form>
-			</div>
 		</div>
 	</div>
 </body>

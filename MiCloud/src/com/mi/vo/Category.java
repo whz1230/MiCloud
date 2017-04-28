@@ -1,4 +1,4 @@
-package com.mi.tree.vo;
+package com.mi.vo;
 
 public class Category {
 	private String id;
