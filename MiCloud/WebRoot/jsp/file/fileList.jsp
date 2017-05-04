@@ -38,7 +38,6 @@ function viewImage(id){
 				<div class="box-hd"><h2 class="title">图片</h2></div>
 				<div class="box-bd J_brickBd">
 					<ul class="review-list clearfix">
-					<c:forEach items="${list }" var="file" varStatus="i">
 					
 						<li class="review-item ">
 							<img src="<%=path %>/file/fileDate.do?id=${file.id}" width="100%" height="98%" alt="" onclick="viewImage('${file.id}');">
@@ -48,11 +47,30 @@ function viewImage(id){
 								<p class="price"><span class="num">${file.uploadTime}</span>元</p>
 							</div>
 						</li>
-					<c:if test="${i.count%4 == 0}">
-	  					<div style="clear: both;"></div>
-	  					<br/>
-	  				</c:if>	
-					</c:forEach>
+						<li class="review-item ">
+							<img src="<%=path %>/file/fileDate.do?id=${file.id}" width="100%" height="98%" alt="" onclick="viewImage('${file.id}');">
+							<div class="info" align="center">
+								<h3 class="title"><a>${file.name}</a></h3>
+								<span class="sep">|</span>
+								<p class="price"><span class="num">${file.uploadTime}</span>元</p>
+							</div>
+						</li>
+						<li class="review-item ">
+							<img src="<%=path %>/file/fileDate.do?id=${file.id}" width="100%" height="98%" alt="" onclick="viewImage('${file.id}');">
+							<div class="info" align="center">
+								<h3 class="title"><a>${file.name}</a></h3>
+								<span class="sep">|</span>
+								<p class="price"><span class="num">${file.uploadTime}</span>元</p>
+							</div>
+						</li>
+						<li class="review-item ">
+							<img src="<%=path %>/file/fileDate.do?id=${file.id}" width="100%" height="98%" alt="" onclick="viewImage('${file.id}');">
+							<div class="info" align="center">
+								<h3 class="title"><a>${file.name}</a></h3>
+								<span class="sep">|</span>
+								<p class="price"><span class="num">${file.uploadTime}</span>元</p>
+							</div>
+						</li>
 					</ul>
 				</div>
 			</div>

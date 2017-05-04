@@ -277,7 +277,7 @@ body {
 	font: 14px/1.5 "Helvetica Neue", Helvetica, Arial, "Microsoft Yahei", "Hiragino Sans GB", "Heiti SC", "WenQuanYi Micro Hei", sans-serif;
 	color: #333;
 	background-color: #fff;
-	min-width: 1226px
+	min-width: 1126px
 }
 
 a {
@@ -321,7 +321,7 @@ a:hover {
 }
 
 .container {
-	width: 1226px; *
+	width: 1126px; *
 	zoom: 1;
 	margin-right: auto;
 	margin-left: auto
