@@ -104,8 +104,8 @@ input,select {
 
 /*-----------------自定义按钮样式，移动端不需要，PC端根据实际情况选择----------------*/
 .demo {
-	width: 800px;
-	height: 450px;
+	width: 1160px;
+	height: 510px;
 	font-size: 14px;
 	position: relative;
 }

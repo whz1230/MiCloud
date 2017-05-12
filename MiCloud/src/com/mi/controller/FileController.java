@@ -8,7 +8,6 @@ public class FileController {
 	
 	@RequestMapping("/file/list.do")
 	public String list(){
-		
 		return "/jsp/file/fileList.jsp";
 	}
 }
