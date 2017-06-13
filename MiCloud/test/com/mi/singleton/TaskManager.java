@@ -1,9 +1,9 @@
 package com.mi.singleton;
 
 /**
- * @Description ÈÎÎñ¹ÜÀíÆ÷
- * @author whz
- * @date 2017-2-22 ÏÂÎç3:13:23
+ * @Description ä»»åŠ¡ç®¡ç†å™¨
+ * @author wuhz
+ * @date 2017-6-13 ä¸Šåˆ9:59:39
  */
 public class TaskManager {
 
@@ -21,14 +21,14 @@ public class TaskManager {
 	}
 
 	/**
-	 * ÏÔÊ¾½ø³Ì
+	 * ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½
 	 */
 	public void displayProcesses() {
 
 	}
 
 	/**
-	 * ÏÔÊ¾·şÎñ
+	 * ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½
 	 */
 	public void displayServices() {
 

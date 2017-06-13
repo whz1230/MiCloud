@@ -1,9 +1,9 @@
 package com.mi.singleton;
 
 /**
- * @Description ÀÁººµ¥ÀıÄ£Ê½
- * @author whz
- * @date 2017-2-22 ÏÂÎç3:28:19
+ * @Description æ‡’æ±‰å•ä¾‹æ¨¡å¼
+ * @author wuhz
+ * @date 2017-6-13 ä¸Šåˆ9:59:09
  */
 public class LazySingleton {
 	private static LazySingleton instance = null;
@@ -11,7 +11,7 @@ public class LazySingleton {
 	private LazySingleton() {
 	}
 
-	/*µÚÒ»ÖÖ
+	/*ï¿½ï¿½Ò»ï¿½ï¿½
 	synchronized public static LazySingleton getInstance() {
 		if (instance == null) {
 			instance = new LazySingleton();
@@ -19,7 +19,7 @@ public class LazySingleton {
 		return instance;
 	}*/
 	
-	/*µÚ¶şÖÖ
+	/*ï¿½Ú¶ï¿½ï¿½ï¿½
 	public static LazySingleton getInstance() {
 		if (instance == null) {
 			synchronized (LazySingleton.class) {
@@ -30,13 +30,13 @@ public class LazySingleton {
 	}*/
 	
 	public static LazySingleton getInstance() {
-		//µÚÒ»ÖØÅĞ¶Ï
+		//ï¿½ï¿½Ò»ï¿½ï¿½ï¿½Ğ¶ï¿½
 		if (instance == null) {
-			//Ëø¶¨´úÂë¿é
+			//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			synchronized (LazySingleton.class) {
-				//µÚ¶şÖØÅĞ¶Ï
+				//ï¿½Ú¶ï¿½ï¿½ï¿½ï¿½Ğ¶ï¿½
 				if (instance == null) {
-					instance = new LazySingleton();//´´½¨ÊµÀı
+					instance = new LazySingleton();//ï¿½ï¿½ï¿½ï¿½Êµï¿½ï¿½
 				}
 			}
 		}
@@ -49,8 +49,8 @@ public class LazySingleton {
 		System.out.println(l1.equals(l2));
 		System.out.println(l1 == l2);
 		
-		String s1 = new String("×Ö·û´®");
-		String s2 = new String("×Ö·û´®");
+		String s1 = new String("ï¿½Ö·ï¿½");
+		String s2 = new String("ï¿½Ö·ï¿½");
 		System.out.println(s2.equals(s2));
 		System.out.println(s1 == s2);
 	}

@@ -12,7 +12,7 @@ public class SortTest {
 	}
 
 	/**
-	 * ²åÈëÅÅĞò
+	 * æ’å…¥æ’åº
 	 */
 	@Test
 	public void insertSort() {
@@ -32,7 +32,7 @@ public class SortTest {
 	}
 
 	/**
-	 * Ñ¡ÔñÅÅĞò
+	 * Ñ¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	 */
 	@Test
 	public void selectSort() {
@@ -54,7 +54,7 @@ public class SortTest {
 	}
 
 	/**
-	 * Ã°ÅİÅÅĞò
+	 * Ã°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	 */
 	@Test
 	public void bubbleSort() {

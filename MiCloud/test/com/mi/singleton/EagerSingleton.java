@@ -1,9 +1,9 @@
 package com.mi.singleton;
 
 /**
- * @Description ¶ñººÊ½µ¥ÀıÄ£Ê½
- * @author whz
- * @date 2017-2-22 ÏÂÎç3:25:50
+ * @Description æ¶æ±‰å¼å•ä¾‹æ¨¡å¼
+ * @author wuhz
+ * @date 2017-6-13 ä¸Šåˆ9:58:56
  */
 public class EagerSingleton {
 	private static final EagerSingleton instance = new EagerSingleton();
