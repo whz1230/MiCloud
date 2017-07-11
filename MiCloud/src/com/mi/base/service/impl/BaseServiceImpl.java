@@ -16,7 +16,7 @@ import com.mi.base.exception.ServiceException;
 import com.mi.base.service.BaseService;
 import com.mi.base.util.CollectionUtil;
 
-//@Service("baseService")
+@Service("baseService")
 public class BaseServiceImpl implements BaseService {
 
 	@Resource

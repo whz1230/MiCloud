@@ -1,5 +1,7 @@
-package com.mi.controller;
+package com.mi.test;
 
+import java.awt.Image;
+import java.awt.print.Book;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -12,76 +14,58 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.DataAccessException;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.ModelAndView;
+import org.junit.Test;
 
 import com.mi.service.FileService;
+import com.mi.service.impl.FileServiceImpl;
 import com.mi.util.UUIDGenerator;
 import com.mi.vo.FileVo;
 
-@Controller
-public class FileController {
+public class Demo4 {
 
-	@Autowired
-	FileService service;
 
-	@RequestMapping("/file/list.do")
-	public String list(Model model) {
-		model.addAttribute("list", service.queryFile());
-		return "/img.jsp";
-	}
-	
-	@RequestMapping("/file/list.do")
-	public ModelAndView fileList(){
-		ModelAndView md = new ModelAndView();
-		md.addObject("list", service.queryFile());
-		md.setViewName("/img.jsp");
-		return md;
-	}
-	
-	@RequestMapping("/file/fileData.do")
-	public void fileData(HttpServletRequest request, HttpServletResponse response) throws DataAccessException, IOException {
-		service.queryFileById(request.getParameter("id"), response.getOutputStream());
-	}
+	@Test
+	public void insertImage() {
 
-	@RequestMapping("/file/saveFile.do")
-	public void saveFile() {
-		String filePath = "E:\\mi_files";
+		String src = "f:/src/image";
+		String target = "C:\\tomcat6\\webapps\\MI\\upload\\image";
 
 		FileInputStream in = null;
 		FileOutputStream out = null;
 
-		List<File> list = showAllFiles(new File(filePath));
+		List<File> list = showAllFiles(new File(src));
 		FileVo vo = null;
 		for (File f : list) {
 			try {
-				String fileName = f.getName();
-				String ext = fileName.substring(fileName.lastIndexOf(".") + 1);
-				if (!ext.equals("jpg") && !ext.equals("gif")) {
-					continue;
-				}
+				String name = f.getName();
+				String ext = name.substring(name.lastIndexOf(".") + 1);
 
 				String uuid = UUIDGenerator.getUUID();
+				String path = generateSavePath();
+				String dir = target + "/" + path;
+				File file = new File(dir);
+				if (!file.exists()) {
+					file.mkdirs();
+				}
+				String serverPath = target + "\\" + path + "\\" + uuid + "." + ext;
 
 				in = new FileInputStream(f);
-				int len = (int) f.length();
+				out = new FileOutputStream(new File(serverPath));
+				int len = 0;
+				byte[] buffer = new byte[1024];
+				while ((len = in.read(buffer)) != -1) {
+					out.write(buffer, 0, len);
+				}
 
 				vo = new FileVo();
 				vo.setId(UUIDGenerator.getUUID());
-				vo.setFileName(fileName);
+				vo.setFileName(name);
 				vo.setServerName(uuid + "." + ext);
-				vo.setType(ext);
 				vo.setUploadTime(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
-				vo.setDescription(fileName);
+				vo.setDescription(name);
 				System.out.println(vo);
 
+				FileService service = new FileServiceImpl();
 				service.saveFile(vo, in, len);
 			} catch (FileNotFoundException e) {
 				e.printStackTrace();

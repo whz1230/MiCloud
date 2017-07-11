@@ -8,10 +8,10 @@ public class FileVo implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private String id;
-	private String name;
+	private String fileName;
 	private String serverName;
 	private String type;
-	private String descrition;
+	private String description;
 	private String uploadTime;
 	private byte[] fileData;
 
@@ -23,12 +23,12 @@ public class FileVo implements Serializable {
 		this.id = id;
 	}
 
-	public String getName() {
-		return name;
+	public String getFileName() {
+		return fileName;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
 	}
 
 	public String getServerName() {
@@ -39,6 +39,7 @@ public class FileVo implements Serializable {
 		this.serverName = serverName;
 	}
 
+
 	public String getType() {
 		return type;
 	}
@@ -47,12 +48,12 @@ public class FileVo implements Serializable {
 		this.type = type;
 	}
 
-	public String getDescrition() {
-		return descrition;
+	public String getDescription() {
+		return description;
 	}
 
-	public void setDescrition(String descrition) {
-		this.descrition = descrition;
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 	public String getUploadTime() {
@@ -73,7 +74,7 @@ public class FileVo implements Serializable {
 
 	@Override
 	public String toString() {
-		return "FileVo [id=" + id + ", name=" + name + ", serverName=" + serverName + ", type=" + type + ", descrition=" + descrition + ", uploadTime=" + uploadTime
+		return "FileVo [id=" + id + ", fileName=" + fileName + ", serverName=" + serverName + ", type=" + type + ", description=" + description + ", uploadTime=" + uploadTime
 				+ ", fileData=" + Arrays.toString(fileData) + "]";
 	}
 

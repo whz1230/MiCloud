@@ -1,4 +1,4 @@
-package com.mi.test;
+package com.mi.sort;
 
 import org.junit.Test;
 

@@ -8,12 +8,12 @@
 		<id name="id">
 			<generator class="uuid" />
 		</id>
-		<property name="name" column="NAME" type="string" not-null="false" length="200" />
-		<property name="serverName" column="SERVER_NAME" type="string" not-null="false" length="200" />
+		<property name="fileName" column="FILENAME" type="string" not-null="false" length="200" />
+		<property name="serverName" column="SERVERNAME" type="string" not-null="false" length="200" />
 		<property name="type" column="TYPE" type="string" not-null="false" length="10" />
-		<property name="descrition" column="DESCRITION" type="string" not-null="false" length="200" />
-		<property name="uploadTime" column="UPLOAD_TIME" type="string" not-null="false" length="19" />
-		<property name="fileData" column="FILE_DATA" type="binary" not-null="false" />
+		<property name="description" column="DESCRIPTION" type="string" not-null="false" length="200" />
+		<property name="uploadTime" column="UPLOADTIME" type="string" not-null="false" length="19" />
+		<property name="fileData" column="FILEDATA" type="binary" not-null="false" />
 
 
 	</class>
