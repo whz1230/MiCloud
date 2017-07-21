@@ -1,7 +1,5 @@
 package com.mi.test;
 
-import java.awt.Image;
-import java.awt.print.Book;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -19,7 +17,7 @@ import org.junit.Test;
 import com.mi.service.FileService;
 import com.mi.service.impl.FileServiceImpl;
 import com.mi.util.UUIDGenerator;
-import com.mi.vo.FileVo;
+import com.mi.vo.FileVO;
 
 public class Demo4 {
 
@@ -34,7 +32,7 @@ public class Demo4 {
 		FileOutputStream out = null;
 
 		List<File> list = showAllFiles(new File(src));
-		FileVo vo = null;
+		FileVO vo = null;
 		for (File f : list) {
 			try {
 				String name = f.getName();
@@ -57,7 +55,7 @@ public class Demo4 {
 					out.write(buffer, 0, len);
 				}
 
-				vo = new FileVo();
+				vo = new FileVO();
 				vo.setId(UUIDGenerator.getUUID());
 				vo.setFileName(name);
 				vo.setServerName(uuid + "." + ext);

@@ -28,7 +28,8 @@ import org.springframework.util.FileCopyUtils;
 import com.mi.base.service.impl.BaseServiceImpl;
 import com.mi.service.FileService;
 import com.mi.util.UUIDGenerator;
-import com.mi.vo.FileVo;
+import com.mi.vo.FileVO;
+import com.mi.vo.UserVO;
 
 @Service("fileService")
 public class FileServiceImpl extends BaseServiceImpl implements FileService {
@@ -37,10 +38,8 @@ public class FileServiceImpl extends BaseServiceImpl implements FileService {
 	@Resource
 	private JdbcTemplate jdbcTemplate;
 
-
-
 	@Override
-	public void saveFile(final FileVo vo, final InputStream in, final int len) throws DataAccessException {
+	public void saveFile(final FileVO vo, final InputStream in, final int len) throws DataAccessException {
 		final String sql = "INSERT INTO T_FILE(ID, FILENAME, SERVERNAME, TYPE, DESCRIPTION, UPLOADTIME, FILEDATA) VALUES(?, ?, ?, ?, ?, ?, ?)";
 		jdbcTemplate.execute(sql, new AbstractLobCreatingPreparedStatementCallback(this.lobHandler) {
 			protected void setValues(PreparedStatement ps, LobCreator lobCreator) throws SQLException {
@@ -54,7 +53,13 @@ public class FileServiceImpl extends BaseServiceImpl implements FileService {
 			}
 		});
 	}
-
+	
+	@Override
+	public void saveUser(final UserVO vo) throws DataAccessException {
+		final String sql = "INSERT INTO t_user(id, username) VALUES(?, ?)";
+		jdbcTemplate.update(sql, new Object[]{vo.getId(),vo.getUsername()});
+	}
+	
 	@Override
 	public void queryFileById(final String id, final OutputStream os) throws DataAccessException {
 		final String sql = "SELECT FILEDATA FROM T_FILE WHERE ID = ?";
@@ -74,18 +79,18 @@ public class FileServiceImpl extends BaseServiceImpl implements FileService {
 	}
 
 	@Override
-	public Serializable[] insertBatch(List<FileVo> list) throws DataAccessException {
+	public Serializable[] insertBatch(List<FileVO> list) throws DataAccessException {
 
 		return null;
 	}
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<FileVo> queryFile() throws DataAccessException {
+	public List<FileVO> queryFile() throws DataAccessException {
 		final String sql = "SELECT ID, FILENAME, SERVERNAME, TYPE, DESCRIPTION, UPLOADTIME FROM T_FILE";
-		return jdbcTemplate.query(sql, new ParameterizedRowMapper<FileVo>() {
-			public FileVo mapRow(ResultSet rs, int rowNum) throws SQLException {
-				FileVo vo = new FileVo();
+		return jdbcTemplate.query(sql, new ParameterizedRowMapper<FileVO>() {
+			public FileVO mapRow(ResultSet rs, int rowNum) throws SQLException {
+				FileVO vo = new FileVO();
 				vo.setId(rs.getString(1));
 				vo.setFileName(rs.getString(2));
 				vo.setServerName(rs.getString(3));

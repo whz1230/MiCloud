@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.mi.vo">
+	<class name="FileVO" table="t_file">
+		<id name="id">
+			<generator class="assigned" />
+		</id>
+
+		<property name="fileName" column="file_name" type="string" not-null="false" length="200" />
+		<property name="serverName" column="server_name" type="string" not-null="false" length="200" />
+		<property name="type" column="type" type="string" not-null="false" length="10" />
+		<property name="description" column="description" type="string" not-null="false" length="200" />
+		<property name="uploadTime" column="upload_time" type="string" not-null="false" length="19" />
+		<property name="fileData" column="file_data" type="binary" not-null="false" />
+
+	</class>
+
+</hibernate-mapping>

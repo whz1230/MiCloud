@@ -40,6 +40,8 @@
 		<property name="maxIdleTime" value="1800"></property>
 
 	</bean>
+	
+	<!-- 定义一个bean -->
 	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">  
         <property name="dataSource" ref="dataSource"></property>
 	</bean>  

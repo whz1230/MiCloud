@@ -110,4 +110,5 @@ public class UUIDGenerator {
 		sb.append(uuid.substring(24));
 		return sb.toString().toUpperCase();
 	}
+
 }

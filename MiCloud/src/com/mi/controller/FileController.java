@@ -20,11 +20,12 @@ import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.ModelAndView;
 
 import com.mi.service.FileService;
 import com.mi.util.UUIDGenerator;
-import com.mi.vo.FileVo;
+import com.mi.vo.FileVO;
+import com.mi.vo.MenuVO;
+import com.mi.vo.UserVO;
 
 @Controller
 public class FileController {
@@ -35,16 +36,9 @@ public class FileController {
 	@RequestMapping("/file/list.do")
 	public String list(Model model) {
 		model.addAttribute("list", service.queryFile());
-		return "/img.jsp";
+		return "/video.jsp";
 	}
 	
-	@RequestMapping("/file/list.do")
-	public ModelAndView fileList(){
-		ModelAndView md = new ModelAndView();
-		md.addObject("list", service.queryFile());
-		md.setViewName("/img.jsp");
-		return md;
-	}
 	
 	@RequestMapping("/file/fileData.do")
 	public void fileData(HttpServletRequest request, HttpServletResponse response) throws DataAccessException, IOException {
@@ -59,12 +53,12 @@ public class FileController {
 		FileOutputStream out = null;
 
 		List<File> list = showAllFiles(new File(filePath));
-		FileVo vo = null;
+		FileVO vo = null;
 		for (File f : list) {
 			try {
 				String fileName = f.getName();
 				String ext = fileName.substring(fileName.lastIndexOf(".") + 1);
-				if (!ext.equals("jpg") && !ext.equals("gif")) {
+				if (!ext.equalsIgnoreCase("mp3")) {
 					continue;
 				}
 
@@ -73,7 +67,7 @@ public class FileController {
 				in = new FileInputStream(f);
 				int len = (int) f.length();
 
-				vo = new FileVo();
+				vo = new FileVO();
 				vo.setId(UUIDGenerator.getUUID());
 				vo.setFileName(fileName);
 				vo.setServerName(uuid + "." + ext);
@@ -103,6 +97,24 @@ public class FileController {
 
 		}
 
+	}
+	
+	@RequestMapping("/user/saveUser.do")
+	public String saveUser(){
+		UserVO vo = new UserVO();
+		vo.setId(UUIDGenerator.getUUID());
+		vo.setCreateDate(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
+		service.insertHiber(vo);
+		
+		MenuVO menuVO = new MenuVO();
+		menuVO.setId(UUIDGenerator.getUUID());
+		service.insertHiber(menuVO);
+		
+		FileVO fileVO = new FileVO();
+		fileVO.setId(UUIDGenerator.getUUID());
+		service.insertHiber(fileVO);
+	
+		return null;
 	}
 
 	private static String generateRelativePath() {

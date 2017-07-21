@@ -3,7 +3,7 @@ package com.mi.vo;
 import java.io.Serializable;
 import java.util.Arrays;
 
-public class FileVo implements Serializable {
+public class FileVO implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 

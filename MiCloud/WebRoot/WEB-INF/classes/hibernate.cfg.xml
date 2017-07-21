@@ -24,8 +24,9 @@
 	<property name="hbm2ddl.auto">update</property>
 
 	<!-- 3，导入映射文件 -->
-	<mapping resource="com/mi/vo/FileVo.hbm.xml"/>
-	<mapping resource="com/mi/vo/CategoryVo.hbm.xml"/>
+	<mapping resource="com/mi/vo/FileVO.hbm.xml"/>
+	<mapping resource="com/mi/vo/UserVO.hbm.xml"/>
+	<mapping resource="com/mi/vo/MenuVO.hbm.xml"/>
 
 </session-factory>
 
